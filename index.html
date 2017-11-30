@@ -21,6 +21,7 @@
       <input type="number" class="form-control" name="results" ng-model="movieCtrl.numberOfResults">
       <label>Order by</label>
       <select class="form-control" ng-model="movieCtrl.orderBy">
+        <option disabled selected value required> -- Select an option -- </option>
          <option value="-vote_average">Vote average</option>
          <option value="-popularity">Popularity</option>
          <option value="title">Alphabetical</option>
