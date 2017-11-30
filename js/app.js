@@ -2,7 +2,7 @@ var app = angular.module('moviedb',[]);
 
 app.controller('movieController', function($http){
 	var db = this;
-	this.numberOfResults = 10;
+	this.numberOfResults = 1;
 
 	db.movies = {};
  

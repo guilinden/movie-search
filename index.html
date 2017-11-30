@@ -28,7 +28,7 @@
       <br><button type="submit" class="btn btn-primary add">Search</button>
     </form>
     <div ng-repeat="item in movieCtrl.movies"> 
-      <div ng-repeat="x in item.results | orderBy: movieCtrl.orderBy" |limitTo : movieCtrl.numberOfResults"  class="review">
+      <div ng-repeat="x in item.results | orderBy: movieCtrl.orderBy |limitTo : movieCtrl.numberOfResults"  class="review">
        <h2 class="title">
        Title: {{x.title}}
        </h2>
