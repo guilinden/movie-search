@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" ng-app="moviedb">
+  <head>
+    <title>Movie search</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script type="text/javascript" src="angular/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body ng-controller="movieController as movieCtrl">
+    <h1>Movie search</h1>
+    <form ng-submit="movieCtrl.searchMovie()" novalidate>
+      <label>Search for a movie</label>
+      <input type="text" name="item" class="form-control" placeholder="Movie title" ng-model="movieCtrl.movie" required>
+      <label>Number of results</label>
+      <input type="number" class="form-control" name="results" ng-model="movieCtrl.numberOfResults">
+      <label>Order by</label>
+      <select class="form-control" ng-model="movieCtrl.orderBy">
+         <option value="-vote_average">Vote average</option>
+         <option value="">Popularity</option>
+         <option value="title">Alphabetical</option>
+      </select>
+      <br><button type="submit" class="btn btn-primary add">Search</button>
+    </form>
+    <div ng-repeat="item in movieCtrl.movies"> 
+      <div ng-repeat="x in item.results | orderBy: movieCtrl.orderBy" |limitTo : movieCtrl.numberOfResults"  class="review">
+       <h2 class="title">
+       Title: {{x.title}}
+       </h2>
+       <p>
+       Overview: {{x.overview}}
+       </p>
+       <h3 ng-style="movieCtrl.cssValue({{x.vote_average}})">
+       Vote average: {{x.vote_average}}
+       </h3>
+      </div>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>

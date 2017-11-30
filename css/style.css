@@ -1,0 +1,19 @@
+
+body{
+	margin-left: 1%;
+}
+
+.review {
+	margin-bottom: 40px;
+	margin-top: 40px;
+	border-bottom: 1px solid lightgrey;
+	width: 80%; 
+}
+
+.add{
+	margin-top: 10px;
+}
+
+.orderBy{
+	margin-top: 10px;
+}
